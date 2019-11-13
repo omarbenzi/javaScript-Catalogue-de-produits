@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="data/produits.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/filter.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Catalogue de produits</title>
+</head>
+<header class="main-header">
+    <div class="logo-container">
+        <!-- logo -->
+        <img src="images/logo.png" alt="logo"> <!-- insersion du logo sous format SVG -->
+    </div>
+
+    <div class="nav-container">
+        <!-- menu -->
+        <nav>
+            <a href="">ACCUEIL</a>
+            <a href="">OFFRES</a>
+            <a href="">CIRCULAIRE</a>
+            <a href="">SERVICE</a>
+        </nav>
+
+    </div>
+    <form>
+        <input type="text" name="chercher" id="chercher" placeholder=" Rechercher"> <!-- input -->
+        <!-- la loupe en format svg -->
+        <svg aria-hidden="true" class="svg-icon s-input-icon s-input-icon__search iconSearch" width="18" height="18"
+            viewBox="0 0 18 18">
+            <path
+                d="M18 16.5l-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5zM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0z">
+            </path>
+        </svg>
+
+    </form>
+    <!-- les lien en haut a drite -->
+    <div class="log-in">
+        <a href="">Deonnexion</a>
+        <span href="s'inscrire.html">Panier ( <span> </span> ) </span>
+    </div>
+
+</header>
+
+</div>
+<div class="filter ">
+    <select id="produits" class="page-numbers pagination-select">
+        <option value="12">12 produits/page</option>
+        <option value="24">24 produits/page</option>
+        <option value="36">36 produits/page</option>
+        <option value="tous">tous</option>
+    </select>
+    <div class="pagination-wrapper">
+        <!-- source : https://codepen.io/micadev/pen/goygpO -->
+        <div class="pagination">
+            <a class="prev page-numbers" href="javascript:;">précédent</a>
+            <a class="next page-numbers" href="javascript:;">suivant</a>
+        </div>
+    </div>
+    <select id="affichage" class="page-numbers pagination-select">
+        <option value="vignette">affichage: vignette</option>
+        <option value="liste">affichage: Liste</option>
+
+    </select>
+
+</div>
+
+<body>
+    <main>
+
+    </main>
+    <footer>
+        <!-- le footer -->
+        <div class="box-container">
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing e cumque amet in veniam commodi, ut eligendi
+                    adipisci.</p>
+            </div>
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing e cumque amet in veniam commodi, ut eligendi
+                    adipisci.</p>
+            </div>
+
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing e cumque amet in veniam commodi, ut eligendi
+                    adipisci.</p>
+            </div>
+        </div>
+        <p>Copyright Et Crédits</p>
+    </footer>
+    <template id="modeleProduit">
+        <article class="produit 2em class">
+            <header class="nom">${nom}</header>
+            <p class="image">
+                <img src="${image}">
+            </p>
+            <p class="description">${description}</p>
+            <p class="prix">
+                <span class="prix-valeur">${prixValeur}</span>
+                <span class="prix-unite">${prixUnite}</span>
+            </p>
+            <p class="categorie">${categorie}</p>
+        </article>
+    </template>
+</body>
+
+</html>

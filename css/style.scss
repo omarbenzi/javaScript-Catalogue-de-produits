@@ -1,0 +1,286 @@
+
+
+
+$_fontfamilynav : 'Roboto Mono',
+monospace;
+$_fontFamilySlider:'Gochi Hand',
+cursive;
+$_fontWeightNav : 400;
+$_NavColor:#767676;
+$_gold_color:#FFD700;
+/**
+dans ce fichier vous allez trouvé du code  de mon tp de la session precedante
+https://codepen.io/netzzwerg/pen/hfutI
+
+*//* media screen par defaut c'est 1280px  */
+$moyen: 760px;
+$petit: 480px;
+
+/* mes mixins */
+
+@mixin boxShadow {
+    /*  les prefix ne passe pas le validator W3C */
+    /*  -webkit-box-shadow: 0px 0px 52px -7px rgba(255, 215, 0, 0.79); 
+    -moz-box-shadow: 0px 0px 52px -7px rgba(255, 215, 0, 0.79); */
+    box-shadow: 0px 0px 52px -7px rgba(255, 215, 0, 0.79);
+
+}
+
+/* background et border top sur html */
+html {
+    border-top: 2px solid rgb(236, 45, 19);
+    // background-image: url(../images/background.png);
+    background-attachment: fixed;
+
+
+}
+
+/*  la largeur du body et background color */
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #fff;
+    background-position: center;
+
+}
+
+/* le header en flex  */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    max-width: 100%;
+
+    /* pour le petit media les items devienent en wrap changment de l'order des items */
+    @media screen and (max-width: $petit) {
+        height: 100%;
+        flex-flow: wrap;
+
+        & :nth-child(4) {
+            order: 2;
+        }
+
+        & :nth-child(2) {
+            order: 3;
+        }
+
+        & :nth-child(3) {
+            order: 4;
+        }
+    }
+
+
+    /* parametre du nav  */
+    .nav-container {
+
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+        max-width: 100%;
+
+        /* nav-container prend une largeur max de 30 % pour ls moyen media */
+        @media screen and (max-width: $moyen) {
+            max-width: 30%;
+            justify-content: space-around;
+        }
+
+        /* les boutons du menu  */
+        nav a {
+            padding: 10px;
+            max-width: 100%;
+            text-decoration: none;
+            font-family: $_fontfamilynav;
+            font-weight: $_fontWeightNav;
+            color: $_NavColor;
+            max-width: 25%;
+
+            /* menu en etat hover */
+            &:hover {
+                border-bottom: 1px solid #000;
+                padding-bottom: 3px;
+                color: #000;
+            }
+
+        }
+
+        /* nav prend 100% de largeur du parent */
+        nav {
+            max-width: 100%;
+
+            /* pour les petit media les item du nav deviennent el colum */
+            @media screen and (max-width: $petit) {
+                display: flex;
+                flex-flow: column;
+            }
+        }
+
+    }
+
+    /* parametre du logo */
+    .logo-container {
+
+        max-width: 300px;
+
+        @media screen and (max-width: $petit) {
+            max-width: 50%;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 130%;
+        }
+
+
+    }
+
+    /* la balise form  */
+    form {
+        display: flex;
+        flex-flow: wrap;
+        max-width: 30%;
+
+        @media screen and (max-width: $petit) {
+            height: 50px;
+            margin: 60px 40px;
+
+        }
+
+        /* parametre input  */
+        input {
+            margin: 10px 0px;
+            width: 100%;
+            height: 60%;
+            border: none;
+            border-bottom: 2px solid;
+            padding: 0px 0px 0px 23px;
+
+            /*  input en focus ajoute un border  */
+            &:focus {
+                outline: none;
+                border-color: $_gold_color;
+            }
+
+        }
+
+        /* positionnement de la loupe */
+        svg {
+            position: relative;
+            top: -42px;
+        }
+
+    }
+
+    /* pour les liens connexion et s'inscrire */
+    .log-in {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-around;
+
+        @media screen and (max-width: $petit) {
+            justify-content: flex-start;
+            width: 50%;
+            align-items: flex-end;
+        }
+
+        a {
+            margin: 5px;
+            color: $_NavColor;
+            text-decoration: none;
+
+            /* en etat hover  */
+            &:hover {
+                text-decoration: underline;
+                color: #000;
+            }
+        }
+
+    }
+}
+
+
+
+
+/* le footer */
+footer {
+    margin-top: 20px;
+
+    .box-container {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: wrap;
+
+        /* l'ajustement de l'espace entre les elements pour les media moyen */
+        @media screen and (max-width: $moyen) {
+            justify-content: space-around;
+        }
+
+        /* les box du footer  */
+        .box {
+            max-width: 400px;
+
+            /* les p dans le footer */
+            p {
+                max-width: 80%;
+                text-align: center;
+                line-height: 30px;
+            }
+
+        }
+    }
+
+    /* le paragraphe copyright */
+    p {
+        margin: 10px auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    border-top: 2px solid #000;
+}
+
+/* parametre general de tous les box */
+.box {
+    margin: 0px 0px 70px 0px;
+
+
+    padding: 5px;
+
+    a {
+        color: #767676;
+
+        text-decoration: none;
+
+        &:visited {
+            text-decoration: none;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            max-width: 100%;
+            padding: 0 20px;
+            border: 2px solid #000;
+            min-height: 70px;
+            align-items: center;
+            border-radius: 20px;
+        }
+
+        &:hover+._btn input {
+            color: #FFD700;
+        }
+
+        &:hover {
+
+            color: #000;
+        }
+
+    }
+
+   
+
+}
+
+

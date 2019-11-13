@@ -1,0 +1,297 @@
+@charset "UTF-8";
+/**
+dans ce fichier vous allez trouvé du code  de mon tp de la session precedante
+https://codepen.io/netzzwerg/pen/hfutI
+
+*/
+/* media screen par defaut c'est 1280px  */
+/* mes mixins */
+/* background et border top sur html */
+html {
+  border-top: 2px solid #ec2d13;
+  background-attachment: fixed;
+}
+
+/*  la largeur du body et background color */
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: #fff;
+  background-position: center;
+}
+
+/* le header en flex  */
+.main-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 80px;
+  max-width: 100%;
+  /* pour le petit media les items devienent en wrap changment de l'order des items */
+  /* parametre du nav  */
+  /* parametre du logo */
+  /* la balise form  */
+  /* pour les liens connexion et s'inscrire */
+}
+
+@media screen and (max-width: 480px) {
+  .main-header {
+    height: 100%;
+    -ms-flex-flow: wrap;
+        flex-flow: wrap;
+  }
+  .main-header :nth-child(4) {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .main-header :nth-child(2) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .main-header :nth-child(3) {
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
+  }
+}
+
+.main-header .nav-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 100%;
+  /* nav-container prend une largeur max de 30 % pour ls moyen media */
+  /* les boutons du menu  */
+  /* nav prend 100% de largeur du parent */
+}
+
+@media screen and (max-width: 760px) {
+  .main-header .nav-container {
+    max-width: 30%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+.main-header .nav-container nav a {
+  padding: 10px;
+  max-width: 100%;
+  text-decoration: none;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+  color: #767676;
+  max-width: 25%;
+  /* menu en etat hover */
+}
+
+.main-header .nav-container nav a:hover {
+  border-bottom: 1px solid #000;
+  padding-bottom: 3px;
+  color: #000;
+}
+
+.main-header .nav-container nav {
+  max-width: 100%;
+  /* pour les petit media les item du nav deviennent el colum */
+}
+
+@media screen and (max-width: 480px) {
+  .main-header .nav-container nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+}
+
+.main-header .logo-container {
+  max-width: 300px;
+}
+
+@media screen and (max-width: 480px) {
+  .main-header .logo-container {
+    max-width: 50%;
+  }
+}
+
+.main-header .logo-container img {
+  max-width: 100%;
+  max-height: 130%;
+}
+
+.main-header form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  max-width: 30%;
+  /* parametre input  */
+  /* positionnement de la loupe */
+}
+
+@media screen and (max-width: 480px) {
+  .main-header form {
+    height: 50px;
+    margin: 60px 40px;
+  }
+}
+
+.main-header form input {
+  margin: 10px 0px;
+  width: 100%;
+  height: 60%;
+  border: none;
+  border-bottom: 2px solid;
+  padding: 0px 0px 0px 23px;
+  /*  input en focus ajoute un border  */
+}
+
+.main-header form input:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+.main-header form svg {
+  position: relative;
+  top: -42px;
+}
+
+.main-header .log-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media screen and (max-width: 480px) {
+  .main-header .log-in {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    width: 50%;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+}
+
+.main-header .log-in a {
+  margin: 5px;
+  color: #767676;
+  text-decoration: none;
+  /* en etat hover  */
+}
+
+.main-header .log-in a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* le footer */
+footer {
+  margin-top: 20px;
+  /* le paragraphe copyright */
+  border-top: 2px solid #000;
+}
+
+footer .box-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  /* l'ajustement de l'espace entre les elements pour les media moyen */
+  /* les box du footer  */
+}
+
+@media screen and (max-width: 760px) {
+  footer .box-container {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+footer .box-container .box {
+  max-width: 400px;
+  /* les p dans le footer */
+}
+
+footer .box-container .box p {
+  max-width: 80%;
+  text-align: center;
+  line-height: 30px;
+}
+
+footer p {
+  margin: 10px auto;
+  width: 100%;
+  text-align: center;
+}
+
+/* parametre general de tous les box */
+.box {
+  margin: 0px 0px 70px 0px;
+  padding: 5px;
+}
+
+.box a {
+  color: #767676;
+  text-decoration: none;
+}
+
+.box a:visited {
+  text-decoration: none;
+}
+
+.box a div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+  max-width: 100%;
+  padding: 0 20px;
+  border: 2px solid #000;
+  min-height: 70px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 20px;
+}
+
+.box a:hover + ._btn input {
+  color: #FFD700;
+}
+
+.box a:hover {
+  color: #000;
+}
+/*# sourceMappingURL=style.css.map */
